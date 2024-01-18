@@ -1,0 +1,161 @@
+<!--DOCTYPE define el tipo de documento y su versión-->
+<!DOCTYPE html>
+
+<!--HTML principal del documento-->
+<html lang="en">
+
+<!--Cabecera del documento con metadatos y enlaces a estilos-->
+<head>
+  <!--Codificación de caracteres-->
+  <meta charset="utf-8">
+  <!--Ajuste del ancho de la página al dispositivo-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Título de la página-->
+  <title>Ecommerce Vinoteka</title>
+  <!--Enlace a la hoja de estilos de Bootstrap-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!--Enlace a la hoja de estilos personalizada-->
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<!--Barra de navegación principal-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!--Contenedor de la barra de navegación-->
+  <div class="container">
+    <!--Enlace del logotipo-->
+    <a class="navbar-brand" href="#">Vinoteka</a>
+    <!--Botón para mostrar el menú en dispositivos pequeños-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--Contenedor del menú de navegación-->
+    <div class="collapse navbar-collapse justify-content-center" style="display: flex; flex-direction: column-reverse;" id="navbarNavDropdown">
+      <!--Lista de elementos de navegación-->
+      <ul class="navbar-nav">
+        <!--Elemento de navegación activo-->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Filtros:</a>
+        </li>
+        <!--Elemento de menú desplegable con opciones de filtro por precio-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Precio</a>
+          <!--Lista de opciones de filtro por precio-->
+          <ul class="dropdown-menu" id="filter__precio">
+            <li><a class="dropdown-item" href="#">Ascendente</a></li>
+            <li><a class="dropdown-item" href="#">Descendente</a></li>
+          </ul>
+        </li>
+        <!--Elemento de menú desplegable con opciones de filtro por nombre-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nombre</a>
+          <!--Lista de opciones de filtro por nombre-->
+          <ul class="dropdown-menu" id="filter__nombre">
+            <li><a class="dropdown-item" href="#">Ascendente</a></li>
+            <li><a class="dropdown-item" href="#">Descendente</a></li>
+          </ul>
+        </li>
+        <!--Elemento de menú desplegable con opciones de filtro por categoría-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</a>
+          <!--Lista de opciones de filtro por categoría-->
+          <ul class="dropdown-menu" id="filter__lista">
+            <li><a class="dropdown-item" href="#">Blend</a></li>
+            <li><a class="dropdown-item" href="#">Cabernet</a></li>
+            <li><a class="dropdown-item" href="#">Chardonnay</a></li>
+            <li><a class="dropdown-item" href="#">Malbec</a></li>
+            <li><a class="dropdown-item" href="#">Merlot</a></li>
+            <li><a class="dropdown-item" href="#">Syrah</a></li>
+            <li><a class="dropdown-item" href="#">Criolla</a></li>
+            <li><a class="dropdown-item" href="#">Cabernet Franc</a></li>
+            <li><a class="dropdown-item" href="#">Todos</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!--Contenedor para mostrar información de inicio de sesión-->
+      <div id="userLogin" class="nav-item"></div>
+      <!--Contenedor del carrito de compras-->
+      <div id="btnCarrito" style="margin-right: 20px"> <img src="../carrito.png" width="46" height="46"alt="">
+        <p id="contador__carrito"></p>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!--Contenedor principal de la página-->
+<div class="container mt-3">
+  <!--Mensaje principal-->
+  <p>Encontra tu vino aqui</p>
+  <!--Campo de búsqueda-->
+  <div class="input-group mb-3">
+    <input type="text" id="filter__input" class="form-control">
+  </div>
+  <div>
+    <!--Botón para agregar producto-->
+    <button id="agregar__producto" class="btn btn-success">Agregar</button>
+  </div>
+  <p></p>
+  <div>
+    <!--Botón para modificar producto-->
+    <button id="btn__modificar" class="btn btn-primary">Modificar</button>
+  </div>
+  <p></p>
+  <!--Contenedor para agregar nuevos productos-->
+  <div id="form__agregar"></div>
+  <!--Contenedor para mostrar la lista de productos-->
+  <div id="productos"></div>
+  <!--Contenedor del carrito de compras-->
+  <div id="carrito">
+    <!--Tabla para mostrar los productos en el carrito-->
+    <table class="table">
+      <!--Encabezado de la tabla-->
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Unidades</th>
+          <th>Costo Unitario</th>
+          <th>Costo Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <!--Cuerpo de la tabla con datos de productos-->
+      <tbody id="items">
+        <!-- Placeholder content, replace with actual data -->
+        <tr>
+          <td>Placeholder</td>
+          <td>Placeholder</td>
+          <td>Placeholder</td>
+          <td>Placeholder</td>
+          <td>Placeholder</td>
+          <td>Placeholder</td>
+        </tr>
+      </tbody>
+      <!--Pie de la tabla con totales-->
+      <tfoot id="totales">
+        <!-- Placeholder content, replace with actual data -->
+        <tr>
+          <td>Total</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<!--Scripts para la lógica de la aplicación-->
+<script type="module" src="./db/productos.js"></script>
+<script type="module" src="./db/usuarios.js"></script>
+<script type="module" src="./js/usuario.js"></script>
+<script type="module" src="./js/inicio.js"></script>
+<script type="module" src="./js/administrador.js"></script>
+<script type="module" src="./js/carrito.js"></script>
+<!--Script para la funcionalidad de Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+<!--Cierre del cuerpo del documento-->
+</body>
+</html>
