@@ -50,7 +50,7 @@ export const comprarProducto = (idProducto) => {
     }
     carrito = JSON.parse(sessionStorage.getItem("carrito"));
 
-    alert(`usted compro el producto ${nombre}`);
+    alert(`Gracias por elejir ${nombre} revisa el carrito y no te olvides de pagar :)`);
 };
 
 const dibujarCarrito = () => {
