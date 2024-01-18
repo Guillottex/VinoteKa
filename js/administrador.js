@@ -39,48 +39,49 @@ usuarioLogeado?.admin === true ? (btnAgregar.style.display = "block") : (btnAgre
 usuarioLogeado?.admin === true ? (btnModificar.style.display = "block") : (btnModificar.style.display = "none")
 
 btnAgregar.addEventListener("click", () => generarVistaAgregar())
+const generarVistaAgregar = () => {
+    agregarProductos.innerHTML = "";
 
-const generarVistaAgregar =() => {
-    agregarProductos.innerHTML = ""
+    agregarProductos.style.display = "block";
 
-    agregarProductos.style.display = "block"
-    
-    const form = document.createElement("form")
+    const form = document.createElement("form");
+    form.classList.add("formulario"); // Agrega una clase al formulario
 
     form.innerHTML = `
     <div>
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="" id="nombre" />
-  </div>
-  <div>
-    <label for="precio">Precio:</label>
-    <input type="text" name="" id="precio" />
-  </div>
-  <div>
-    <label for="imagen">Imagen:</label>
-    <input type="text" name="" id="imagen" />
-  </div>
-  <div>
-    <label for="categoria">Categoria:</label>
-    <input type="text" name="" id="categoria" />
-  </div>
-<button id="cargar" class="btn btn-primary" type="button">Cargar</button>
-<button id="cerrar" class="btn btn-danger" type="button"> X Cerrar</button>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="" id="nombre" />
+    </div>
+    <div>
+        <label for="precio">Precio:</label>
+        <input type="text" name="" id="precio" />
+    </div>
+    <div>
+        <label for="imagen">Imagen:</label>
+        <input type="text" name="" id="imagen" />
+    </div>
+    <div>
+        <label for="categoria">Categoria:</label>
+        <input type="text" name="" id="categoria" />
+    </div>
+    <button id="cargar" class="btn btn-primary" type="button">Cargar</button>
+    <button id="cerrar" class="btn btn-danger" type="button"> X Cerrar</button>
+    `;
 
-    `
-    agregarProductos.appendChild(form)
+    agregarProductos.appendChild(form);
 
-    const btnCargar = document.getElementById("cargar")
+    const btnCargar = document.getElementById("cargar");
     btnCargar.addEventListener("click", (e) => {
-        e.preventDefault()
-        guadarProducto()
-    })
-    const btnCerrar = document.getElementById("cerrar")
-    btnCerrar.addEventListener("click", (e) => {
-        agregarProductos.style.display = "none"
-    })
+        e.preventDefault();
+        guadarProducto();
+    });
 
-}
+    const btnCerrar = document.getElementById("cerrar");
+    btnCerrar.addEventListener("click", (e) => {
+        agregarProductos.style.display = "none";
+    });
+};
+
 
 const guadarProducto = () => {
     const nombre = agregarProductos.children[0][0].value
